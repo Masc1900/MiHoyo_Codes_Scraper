@@ -73,8 +73,10 @@ def scrape_page(url):
     Args:
         url (str): URL della pagina web da cui estrarre i dati."""
     try:
+        logging.info(f"Inizio scraping della pagina: {url}")
         response = requests.get(url)
         response.raise_for_status()  # Solleva un'eccezione per status code 4xx/5xx
+        logging.debug(f"Pagina scaricata con successo. Status code: {response.status_code}")
         soup = BeautifulSoup(response.text, "html.parser")
         rows = soup.find_all('table')[0].find_all('tr')
         code = None
@@ -114,6 +116,7 @@ def scrape_page(url):
 
             reward_dict = {"Codice": code, "Link": link, "Ricompense": rewards}
             dict_list.append(reward_dict)
+        logging.info(f"Scraping completato. Trovati {len(dict_list)} codici promo")
         return dict_list
 
     except requests.exceptions.RequestException as e:
@@ -125,6 +128,11 @@ def scrape_page(url):
 
 def save_to_json(data, filepath):
     """Salva i dati estratti in un file JSON."""
-    with open(filepath, "w") as file:
-        json.dump(data, fp=file, indent=4)
-    pass
+    try:
+        logging.info(f"Inizio salvataggio dati su file: {filepath}")
+        with open(filepath, "w") as file:
+            json.dump(data, fp=file, indent=4)
+        logging.info(f"Dati salvati con successo. File: {filepath} | Elementi: {len(data)}")
+    except Exception as e:
+        logging.error(f"Errore durante il salvataggio del file {filepath}: {e}")
+        raise
