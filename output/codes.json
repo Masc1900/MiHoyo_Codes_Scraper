@@ -1,0 +1,103 @@
+[
+    {
+        "Codice": "ALETTERFORYOU",
+        "Link": "https://hsr.hoyoverse.com/gift?code=ALETTERFORYOU",
+        "Ricompense": {
+            " Adventure Log": 6,
+            " Dreamlight - Mixed Sweets": 2
+        }
+    },
+    {
+        "Codice": "HailYaoGuang",
+        "Link": "https://hsr.hoyoverse.com/gift?code=HailYaoGuang",
+        "Ricompense": {
+            " Traveler's Guide": 3,
+            " Songlotus Cake": 2
+        }
+    },
+    {
+        "Codice": "XAK9QJ454SG7",
+        "Link": "https://hsr.hoyoverse.com/gift?code=XAK9QJ454SG7",
+        "Ricompense": {
+            " Stellar Jade": 50,
+            " Credit": 10000
+        }
+    },
+    {
+        "Codice": "KBJ8VZ6Y27QX",
+        "Link": "https://hsr.hoyoverse.com/gift?code=KBJ8VZ6Y27QX",
+        "Ricompense": {
+            " Stellar Jade": 60,
+            " Traveler's Guide": 2,
+            " Refined Aether": 3,
+            " Credit": 5000
+        }
+    },
+    {
+        "Codice": "MH5KC",
+        "Link": "https://hsr.hoyoverse.com/gift?code=MH5KC",
+        "Ricompense": {
+            " Stellar Jade": 100,
+            " Refined Aether": 4
+        }
+    },
+    {
+        "Codice": "BGF3A",
+        "Link": "https://hsr.hoyoverse.com/gift?code=BGF3A",
+        "Ricompense": {
+            " Stellar Jade": 100,
+            " Traveler's Guide": 5
+        }
+    },
+    {
+        "Codice": "AT45Q",
+        "Link": "https://hsr.hoyoverse.com/gift?code=AT45Q",
+        "Ricompense": {
+            " Stellar Jade": 100,
+            " Credit": 50000
+        }
+    },
+    {
+        "Codice": "OMEGA",
+        "Link": "https://hsr.hoyoverse.com/gift?code=OMEGA",
+        "Ricompense": {
+            " Stellar Jade": 60,
+            " Fuel": 1
+        }
+    },
+    {
+        "Codice": "CREATIONNYMPH",
+        "Link": "https://hsr.hoyoverse.com/gift?code=CREATIONNYMPH",
+        "Ricompense": {
+            " Stellar Jade": 60,
+            " Fuel": 1,
+            " Heroic Variable": 1
+        }
+    },
+    {
+        "Codice": "FAREWELL",
+        "Link": "https://hsr.hoyoverse.com/gift?code=FAREWELL",
+        "Ricompense": {
+            " Stellar Jade": 60,
+            " Fuel": 1
+        }
+    },
+    {
+        "Codice": "IFYOUAREREADINGTHIS",
+        "Link": "https://hsr.hoyoverse.com/gift?code=IFYOUAREREADINGTHIS",
+        "Ricompense": {
+            " Stellar Jade": 60,
+            " Fuel": 1
+        }
+    },
+    {
+        "Codice": "STARRAILGIFT",
+        "Link": "https://hsr.hoyoverse.com/gift?code=STARRAILGIFT",
+        "Ricompense": {
+            " Stellar Jade": 100,
+            " Traveler's Guide": 4,
+            " Bottled Soda": 5,
+            " Credit": 50000
+        }
+    }
+]

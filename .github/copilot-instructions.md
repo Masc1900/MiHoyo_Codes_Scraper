@@ -4,7 +4,8 @@ Honkai Star Rail Promo Code Scraper
 This program scrapes promo codes for the game Honkai Star Rail,
 eventually it will be updated to also be used for other games and other links but for now Star Rail is fine.
 # Input
-Data from the site Game8 (https://game8.co/games/Honkai-Star-Rail/archives/410296)
+Data from the site Game8 ( https://game8.co/games/Honkai-Star-Rail/archives/410296 )
+[Example Page](../docs/example.html)
 # Output
 A Json file fromatted in a way that shows:
 - The date of the scraping
