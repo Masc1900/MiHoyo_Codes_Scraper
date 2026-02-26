@@ -4,6 +4,8 @@ import time
 
 FILEPATH = "output/codes.json"
 URL = "https://game8.co/games/Honkai-Star-Rail/archives/410296"
+# Funziona anche per ZZZ: https://game8.co/games/Zenless-Zone-Zero/archives/435683
+# Funziona anche per Genshin: https://game8.co/games/Genshin-Impact/archives/304759
 
 
 def main():
