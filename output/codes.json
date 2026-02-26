@@ -2,102 +2,218 @@
     {
         "Codice": "ALETTERFORYOU",
         "Link": "https://hsr.hoyoverse.com/gift?code=ALETTERFORYOU",
-        "Ricompense": {
-            " Adventure Log": 6,
-            " Dreamlight - Mixed Sweets": 2
-        }
+        "Ricompense": [
+            {
+                "Nome": " Adventure Log",
+                "Quantita'": 6,
+                "Immagine": "https://img.game8.co/3656095/54eed904294437c7e5e6d92315ca3e02.png/show"
+            },
+            {
+                "Nome": " Dreamlight - Mixed Sweets",
+                "Quantita'": 2,
+                "Immagine": "https://img.game8.co/3837201/bb231adea728f988f634e82a29586167.png/show"
+            }
+        ]
     },
     {
         "Codice": "HailYaoGuang",
         "Link": "https://hsr.hoyoverse.com/gift?code=HailYaoGuang",
-        "Ricompense": {
-            " Traveler's Guide": 3,
-            " Songlotus Cake": 2
-        }
+        "Ricompense": [
+            {
+                "Nome": " Traveler's Guide",
+                "Quantita'": 3,
+                "Immagine": "https://img.game8.co/3656147/e731ac0f85a7949e45c11f193e004807.png/show"
+            },
+            {
+                "Nome": " Songlotus Cake",
+                "Quantita'": 2,
+                "Immagine": "https://img.game8.co/3684040/543c8836ab1e3db2762d209dd6e4f26f.png/show"
+            }
+        ]
     },
     {
         "Codice": "XAK9QJ454SG7",
         "Link": "https://hsr.hoyoverse.com/gift?code=XAK9QJ454SG7",
-        "Ricompense": {
-            " Stellar Jade": 50,
-            " Credit": 10000
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 50,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Credit",
+                "Quantita'": 10000,
+                "Immagine": "https://img.game8.co/3714201/5035667c4a87fab2ad217ace2dd1c071.png/show"
+            }
+        ]
     },
     {
         "Codice": "KBJ8VZ6Y27QX",
         "Link": "https://hsr.hoyoverse.com/gift?code=KBJ8VZ6Y27QX",
-        "Ricompense": {
-            " Stellar Jade": 60,
-            " Traveler's Guide": 2,
-            " Refined Aether": 3,
-            " Credit": 5000
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 60,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Traveler's Guide",
+                "Quantita'": 2,
+                "Immagine": "https://img.game8.co/3656147/e731ac0f85a7949e45c11f193e004807.png/show"
+            },
+            {
+                "Nome": " Refined Aether",
+                "Quantita'": 3,
+                "Immagine": "https://img.game8.co/3656149/64ce6a2836a5b39dfdd4999724175f91.png/show"
+            },
+            {
+                "Nome": " Credit",
+                "Quantita'": 5000,
+                "Immagine": "https://img.game8.co/3714201/5035667c4a87fab2ad217ace2dd1c071.png/show"
+            }
+        ]
     },
     {
         "Codice": "MH5KC",
         "Link": "https://hsr.hoyoverse.com/gift?code=MH5KC",
-        "Ricompense": {
-            " Stellar Jade": 100,
-            " Refined Aether": 4
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 100,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Refined Aether",
+                "Quantita'": 4,
+                "Immagine": "https://img.game8.co/3656149/64ce6a2836a5b39dfdd4999724175f91.png/show"
+            }
+        ]
     },
     {
         "Codice": "BGF3A",
         "Link": "https://hsr.hoyoverse.com/gift?code=BGF3A",
-        "Ricompense": {
-            " Stellar Jade": 100,
-            " Traveler's Guide": 5
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 100,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Traveler's Guide",
+                "Quantita'": 5,
+                "Immagine": "https://img.game8.co/3656147/e731ac0f85a7949e45c11f193e004807.png/show"
+            }
+        ]
     },
     {
         "Codice": "AT45Q",
         "Link": "https://hsr.hoyoverse.com/gift?code=AT45Q",
-        "Ricompense": {
-            " Stellar Jade": 100,
-            " Credit": 50000
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 100,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Credit",
+                "Quantita'": 50000,
+                "Immagine": "https://img.game8.co/3714201/5035667c4a87fab2ad217ace2dd1c071.png/show"
+            }
+        ]
     },
     {
         "Codice": "OMEGA",
         "Link": "https://hsr.hoyoverse.com/gift?code=OMEGA",
-        "Ricompense": {
-            " Stellar Jade": 60,
-            " Fuel": 1
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 60,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Fuel",
+                "Quantita'": 1,
+                "Immagine": "https://img.game8.co/3656588/75691980e68b16dc4c2d8d0b70884680.png/show"
+            }
+        ]
     },
     {
         "Codice": "CREATIONNYMPH",
         "Link": "https://hsr.hoyoverse.com/gift?code=CREATIONNYMPH",
-        "Ricompense": {
-            " Stellar Jade": 60,
-            " Fuel": 1,
-            " Heroic Variable": 1
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 60,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Fuel",
+                "Quantita'": 1,
+                "Immagine": "https://img.game8.co/3656588/75691980e68b16dc4c2d8d0b70884680.png/show"
+            },
+            {
+                "Nome": " Heroic Variable",
+                "Quantita'": 1,
+                "Immagine": "https://img.game8.co/4210366/dd82f1a33af03fab3022d29877adc2bf.png/show"
+            }
+        ]
     },
     {
         "Codice": "FAREWELL",
         "Link": "https://hsr.hoyoverse.com/gift?code=FAREWELL",
-        "Ricompense": {
-            " Stellar Jade": 60,
-            " Fuel": 1
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 60,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Fuel",
+                "Quantita'": 1,
+                "Immagine": "https://img.game8.co/3656588/75691980e68b16dc4c2d8d0b70884680.png/show"
+            }
+        ]
     },
     {
         "Codice": "IFYOUAREREADINGTHIS",
         "Link": "https://hsr.hoyoverse.com/gift?code=IFYOUAREREADINGTHIS",
-        "Ricompense": {
-            " Stellar Jade": 60,
-            " Fuel": 1
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 60,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Fuel",
+                "Quantita'": 1,
+                "Immagine": "https://img.game8.co/3656588/75691980e68b16dc4c2d8d0b70884680.png/show"
+            }
+        ]
     },
     {
         "Codice": "STARRAILGIFT",
         "Link": "https://hsr.hoyoverse.com/gift?code=STARRAILGIFT",
-        "Ricompense": {
-            " Stellar Jade": 100,
-            " Traveler's Guide": 4,
-            " Bottled Soda": 5,
-            " Credit": 50000
-        }
+        "Ricompense": [
+            {
+                "Nome": " Stellar Jade",
+                "Quantita'": 100,
+                "Immagine": "https://img.game8.co/3671963/3db0ccc7872e144c24a041453e9b7772.png/show"
+            },
+            {
+                "Nome": " Traveler's Guide",
+                "Quantita'": 4,
+                "Immagine": "https://img.game8.co/3656147/e731ac0f85a7949e45c11f193e004807.png/show"
+            },
+            {
+                "Nome": " Bottled Soda",
+                "Quantita'": 5,
+                "Immagine": "https://img.game8.co/3668583/b3c70457a2ad1f211cb26cc783627ac8.png/show"
+            },
+            {
+                "Nome": " Credit",
+                "Quantita'": 50000,
+                "Immagine": "https://img.game8.co/3714201/5035667c4a87fab2ad217ace2dd1c071.png/show"
+            }
+        ]
     }
 ]

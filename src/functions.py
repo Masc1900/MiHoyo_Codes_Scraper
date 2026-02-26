@@ -68,6 +68,29 @@ def logconfig():
     )
 
 
+def format_rewards(names, amounts, imgs):
+    """
+    Formatta le ricompense in un elenco di dizionari.
+
+    Args:
+        names (list): Lista dei nomi delle ricompense.
+        amounts (list): Lista delle quantità delle ricompense.
+        imgs (list): Lista degli URL delle immagini delle ricompense.
+
+    Returns:
+        list: Lista di dizionari con chiavi "Nome", "Quantità", "Immagine".
+    """
+    rewards_list = []
+    for name, amount, img in zip(names, amounts, imgs):
+        reward_dict = {
+            "Nome": name,
+            "Quantita'": amount,
+            "Immagine": img
+        }
+        rewards_list.append(reward_dict)
+    return rewards_list
+
+
 def scrape_page(url):
     """Scrape le pagine web specificate negli URL e registra i dati estratti.
     Args:
@@ -76,7 +99,8 @@ def scrape_page(url):
         logging.info(f"Inizio scraping della pagina: {url}")
         response = requests.get(url)
         response.raise_for_status()  # Solleva un'eccezione per status code 4xx/5xx
-        logging.debug(f"Pagina scaricata con successo. Status code: {response.status_code}")
+        logging.debug(
+            f"Pagina scaricata con successo. Status code: {response.status_code}")
         soup = BeautifulSoup(response.text, "html.parser")
         rows = soup.find_all('table')[0].find_all('tr')
         code = None
@@ -104,6 +128,7 @@ def scrape_page(url):
                 rewards = tmp
                 reward_names = []
                 reward_amounts = []
+                reward_imgs = []
                 for i, el in enumerate(rewards):
                     if i % 2 == 0:
                         reward_names.append(el)
@@ -111,12 +136,19 @@ def scrape_page(url):
                         el = el.replace(",", "")
                         el = int(el.replace("x", ""))
                         reward_amounts.append(el)
+                imgs = column_rewards.find_all("img")
+                if imgs:
+                    for img in imgs:
+                        reward_imgs.append(img["data-src"])
 
-                rewards = dict(zip(reward_names, reward_amounts))
+                rewards = format_rewards(
+                    reward_names, reward_amounts, reward_imgs)
 
+            # TODO Passare dal dizionario rewards come è ora a {"Nome":"","Quantità":"","Immagine":""}
             reward_dict = {"Codice": code, "Link": link, "Ricompense": rewards}
             dict_list.append(reward_dict)
-        logging.info(f"Scraping completato. Trovati {len(dict_list)} codici promo")
+        logging.info(
+            f"Scraping completato. Trovati {len(dict_list)} codici promo")
         return dict_list
 
     except requests.exceptions.RequestException as e:
@@ -132,7 +164,9 @@ def save_to_json(data, filepath):
         logging.info(f"Inizio salvataggio dati su file: {filepath}")
         with open(filepath, "w") as file:
             json.dump(data, fp=file, indent=4)
-        logging.info(f"Dati salvati con successo. File: {filepath} | Elementi: {len(data)}")
+        logging.info(
+            f"Dati salvati con successo. File: {filepath} | Elementi: {len(data)}")
     except Exception as e:
-        logging.error(f"Errore durante il salvataggio del file {filepath}: {e}")
+        logging.error(
+            f"Errore durante il salvataggio del file {filepath}: {e}")
         raise
