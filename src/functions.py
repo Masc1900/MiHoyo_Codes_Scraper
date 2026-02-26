@@ -91,62 +91,179 @@ def format_rewards(names, amounts, imgs):
     return rewards_list
 
 
-def scrape_page(url):
-    """Scrape le pagine web specificate negli URL e registra i dati estratti.
+def extract_code_and_link(column_codes):
+    """
+    Estrae il codice promo e il link di riscatto dalla colonna.
+
     Args:
-        url (str): URL della pagina web da cui estrarre i dati."""
+        column_codes (BeautifulSoup.Tag): Elemento HTML della colonna codici.
+
+    Returns:
+        tuple: (code, link) dove code e link possono essere None se non trovati.
+    """
+    code = None
+    link = None
+
+    if column_codes:
+        code_row = column_codes.find("input")
+        if code_row:
+            code = code_row["value"]
+        link_row = column_codes.find("a")
+        if link_row:
+            link = link_row["href"]
+
+    return code, link
+
+
+def extract_reward_raw_data(column_rewards):
+    """
+    Estrae i dati grezzi delle ricompense dal testo della colonna.
+
+    Args:
+        column_rewards (BeautifulSoup.Tag): Elemento HTML della colonna ricompense.
+
+    Returns:
+        list: Lista di stringhe non vuote con i dati delle ricompense.
+    """
+    if not column_rewards:
+        return []
+
+    rewards = str(column_rewards.text).split("\n")
+    # Rimuove le stringhe vuote
+    return [el for el in rewards if el.strip()]
+
+
+def parse_reward_names_and_amounts(raw_rewards):
+    """
+    Separa i nomi e le quantità delle ricompense.
+
+    Args:
+        raw_rewards (list): Lista con nomi e quantità alternati.
+
+    Returns:
+        tuple: (reward_names, reward_amounts) liste separate.
+    """
+    reward_names = []
+    reward_amounts = []
+
+    for i, el in enumerate(raw_rewards):
+        if i % 2 == 0:
+            reward_names.append(el)
+        else:
+            # Rimuove virgole e la "x" per ottenere il numero
+            amount = int(el.replace(",", "").replace("x", ""))
+            reward_amounts.append(amount)
+
+    return reward_names, reward_amounts
+
+
+def extract_reward_images(column_rewards):
+    """
+    Estrae gli URL delle immagini delle ricompense.
+
+    Args:
+        column_rewards (BeautifulSoup.Tag): Elemento HTML della colonna ricompense.
+
+    Returns:
+        list: Lista di URL delle immagini.
+    """
+    reward_imgs = []
+    if column_rewards:
+        imgs = column_rewards.find_all("img")
+        for img in imgs:
+            reward_imgs.append(img["data-src"])
+    return reward_imgs
+
+
+def process_rewards_column(column_rewards):
+    """
+    Elabora completamente la colonna delle ricompense.
+
+    Args:
+        column_rewards (BeautifulSoup.Tag): Elemento HTML della colonna ricompense.
+
+    Returns:
+        list: Lista di dizionari con le ricompense formattate.
+    """
+    if not column_rewards:
+        return None
+
+    raw_rewards = extract_reward_raw_data(column_rewards)
+    if not raw_rewards:
+        return None
+
+    reward_names, reward_amounts = parse_reward_names_and_amounts(raw_rewards)
+    reward_imgs = extract_reward_images(column_rewards)
+
+    return format_rewards(reward_names, reward_amounts, reward_imgs)
+
+
+def process_table_row(row):
+    """
+    Elabora una riga della tabella per estrarre codice e ricompense.
+
+    Args:
+        row (BeautifulSoup.Tag): Elemento HTML della riga della tabella.
+
+    Returns:
+        dict: Dizionario con chiavi "Codice", "Link", "Ricompense".
+    """
+    columns = row.find_all("td")
+    if len(columns) < 2:
+        return None
+
+    code, link = extract_code_and_link(columns[0])
+    rewards = process_rewards_column(columns[1])
+
+    return {
+        "Codice": code,
+        "Link": link,
+        "Ricompense": rewards
+    }
+
+
+def extract_table_rows(soup):
+    """
+    Estrae le righe della tabella dalla pagina.
+
+    Args:
+        soup (BeautifulSoup): Oggetto BeautifulSoup della pagina.
+
+    Returns:
+        list: Lista di righe della tabella (esclude l'intestazione).
+    """
+    tables = soup.find_all('table')
+    if not tables:
+        return []
+    return tables[0].find_all('tr')[1:]  # Salta l'intestazione
+
+
+def scrape_page(url):
+    """
+    Scrape le pagine web specificate negli URL e registra i dati estratti.
+
+    Args:
+        url (str): URL della pagina web da cui estrarre i dati.
+
+    Returns:
+        list: Lista di dizionari con i dati estratti, o None in caso di errore.
+    """
     try:
         logging.info(f"Inizio scraping della pagina: {url}")
         response = requests.get(url)
         response.raise_for_status()  # Solleva un'eccezione per status code 4xx/5xx
         logging.debug(
             f"Pagina scaricata con successo. Status code: {response.status_code}")
+
         soup = BeautifulSoup(response.text, "html.parser")
-        rows = soup.find_all('table')[0].find_all('tr')
-        code = None
-        link = None
-        rewards = None
+        rows = extract_table_rows(soup)
         dict_list = []
 
-        for row in rows[1:]:  # Salta l'intestazione della tabella
-            columns = row.find_all("td")
-            column_codes = columns[0]
-            column_rewards = columns[1]
-            if column_codes:  # Se la colonna dei codici esiste, estrai il codice e il link
-                code_row = column_codes.find("input")
-                if code_row:
-                    code = code_row["value"]
-                link_row = column_codes.find("a")
-                if link_row:
-                    link = link_row["href"]
-            if column_rewards:  # Se esiste la colonna delle ricompense esiste, estrai le ricompense
-                rewards = str(column_rewards.text).split("\n")
-                tmp = []
-                for el in rewards:
-                    if el != "":  # Rimuove le stringhe vuote dalla lista delle ricompense
-                        tmp.append(el)
-                rewards = tmp
-                reward_names = []
-                reward_amounts = []
-                reward_imgs = []
-                for i, el in enumerate(rewards):
-                    if i % 2 == 0:
-                        reward_names.append(el)
-                    else:
-                        el = el.replace(",", "")
-                        el = int(el.replace("x", ""))
-                        reward_amounts.append(el)
-                imgs = column_rewards.find_all("img")
-                if imgs:
-                    for img in imgs:
-                        reward_imgs.append(img["data-src"])
+        for row in rows:
+            row_data = process_table_row(row)
+            if row_data:
+                dict_list.append(row_data)
 
-                rewards = format_rewards(
-                    reward_names, reward_amounts, reward_imgs)
-
-            # TODO Passare dal dizionario rewards come è ora a {"Nome":"","Quantità":"","Immagine":""}
-            reward_dict = {"Codice": code, "Link": link, "Ricompense": rewards}
-            dict_list.append(reward_dict)
         logging.info(
             f"Scraping completato. Trovati {len(dict_list)} codici promo")
         return dict_list
