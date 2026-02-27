@@ -276,23 +276,29 @@ def scrape_page(url):
 
 
 def check_dir_exists(filepath):
-    """Controlla se la directory del filepath esiste, altrimenti la crea."""
+    """Controlla se la directory del filepath esiste, altrimenti la crea.
+    Args:
+        filepath (str): Il percorso completo del file (incluso il nome del file)."""
     dir_path = os.path.dirname(filepath)
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
         logging.info(f"Directory creata: {dir_path}")
 
 
-def save_to_json(data, filepath):
-    """Salva i dati estratti in un file JSON."""
+def save_to_json(data, filepath, filename):
+    """Salva i dati estratti in un file JSON.
+    Args:
+        data (list): La lista di dizionari da salvare.
+        filepath (str): Il percorso della directory dove salvare il file.
+        filename (str): Il nome del file (senza estensione)."""
     try:
         check_dir_exists(filepath)
-        logging.info(f"Inizio salvataggio dati su file: {filepath}")
-        with open(filepath, "w") as file:
+        logging.info(f"Inizio salvataggio dati su file: {filepath + filename + '.json'}")
+        with open(filepath + filename + ".json", "w") as file:
             json.dump(data, fp=file, indent=4)
         logging.info(
-            f"Dati salvati con successo. File: {filepath} | Elementi: {len(data)}")
+            f"Dati salvati con successo. File: {filepath + filename + '.json'} | Elementi: {len(data)}")
     except Exception as e:
         logging.error(
-            f"Errore durante il salvataggio del file {filepath}: {e}")
+            f"Errore durante il salvataggio del file {filepath + filename + '.json'}: {e}")
         raise

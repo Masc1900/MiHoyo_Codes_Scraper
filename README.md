@@ -67,6 +67,12 @@ Per eseguire il programma:
 python Mihoyo Code Scraper.exe *URL*
 ```
 
+Supporta anche liste di url:
+
+```bash
+python Mihoyo Code Scraper.exe *URL1* *URL2* *URL3*
+```
+
 ## Struttura del progetto
 
 ```bash
