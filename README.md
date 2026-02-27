@@ -2,12 +2,11 @@
 
 ## Descrizione
 
-Questo programma permette di estrarre automaticamente i codici promozionali per il gioco Honkai Star Rail dal sito Game8.
-In futuro sarà possibile estendere il programma per altri giochi e altri siti, ma attualmente è focalizzato su Star Rail.
+Questo programma permette di estrarre automaticamente i codici promozionali per i giochi MiHoyo dal sito Game8.
 
 ## Input
 
-Il programma estrae i dati da [questa pagina](https://game8.co/games/Honkai-Star-Rail/archives/410296).
+Il programma estrae i dati da ogni [pagina di codici promozionali dei giochi MiHoyo su Game8](https://game8.co/games/Honkai-Star-Rail/archives/410296).
 
 Un esempio di pagina è disponibile in [docs/example.html](docs/example.html).
 
@@ -65,7 +64,7 @@ Le dipendenze sono elencate in [requirements.txt](requirements.txt).
 Per eseguire il programma:
 
 ```bash
-python src/main.py
+python Mihoyo Code Scraper.exe *URL*
 ```
 
 ## Struttura del progetto
@@ -78,8 +77,6 @@ Codes_Scraper
 │  └─ example.html
 ├─ icons
 │  └─ Stellar-Jade.ico
-├─ output
-│  └─ codes.json
 ├─ README.md
 ├─ requirements.txt
 ├─ scripts
