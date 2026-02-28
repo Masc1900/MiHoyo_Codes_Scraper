@@ -1,4 +1,4 @@
-# Honkai Star Rail Promo Code Scraper
+# MiHoyo Promo Code Scraper
 
 ## Descrizione
 
