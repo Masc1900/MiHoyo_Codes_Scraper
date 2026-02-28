@@ -64,13 +64,28 @@ Le dipendenze sono elencate in [requirements.txt](requirements.txt).
 Per eseguire il programma:
 
 ```bash
-python Mihoyo Code Scraper.exe *URL*
+"Mihoyo Code Scraper.exe" *URL*
 ```
 
 Supporta anche liste di url:
 
 ```bash
-python Mihoyo Code Scraper.exe *URL1* *URL2* *URL3*
+"Mihoyo Code Scraper.exe" *URL1* *URL2* *URL3*
+```
+
+### Ora supporta linux
+
+**Basta compilare con lo script [scripts/buildLinux.sh](scripts/buildLinux.sh) e poi eseguire:**
+
+```bash
+"Mihoyo Code Scraper" *URL*
+```
+
+Supporta anche liste di url:
+
+```bash
+"Mihoyo Code Scraper" *URL1* *URL2* *URL3*
+
 ```
 
 ## Struttura del progetto
