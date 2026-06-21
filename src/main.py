@@ -20,10 +20,21 @@ def main():
     fn.logconfig()
     logging.info("Applicazione avviata")
     if len(argv) > 1:
-        if all("https://" in arg for arg in argv[1:]):
-            URLs = argv[1:]
-        else:
-            logging.critical("L'argomento fornito non è un URL valido.")
+        allowed_flags = {"-d"}
+        args = argv[1:]
+        invalid_args = [
+            arg for arg in args
+            if not (arg.startswith("http://") or arg.startswith("https://") or arg in allowed_flags)
+        ]
+        if invalid_args:
+            logging.critical(
+                f"Argomenti non validi: {invalid_args}. Passa solo URL e il flag -d.")
+            return
+
+        URLs = [arg for arg in args if arg.startswith("http://") or arg.startswith("https://")]
+        if not URLs:
+            logging.critical(
+                "Nessun URL valido fornito. Inserisci almeno un URL dopo i flag.")
             return
     else:
         logging.critical(
@@ -32,6 +43,10 @@ def main():
     for URL in URLs:
         FILENAME = URL.split("/")[-3].replace("-", " ")
         data = fn.scrape_page(URL)
+        if not data:
+            logging.warning(
+                f"Nessun dato estratto da {URL}. Il file non verrà salvato.")
+            continue
         fn.save_to_json(data, FILEPATH, FILENAME)
 
     logging.info("Applicazione terminata in %.2f secondi",
